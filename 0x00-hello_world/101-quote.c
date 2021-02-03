@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <errno.h>
-
-extern int errno;
+#include <string.h>
 /**
  * main - Entry point
  *
@@ -9,7 +7,7 @@ extern int errno;
  */
 int main(void)
 {
-perror("and that piece of art is useful\" - Dora Korpar, 2015-10-19");
-
+char str[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
+fprintf(stderr, "%s\n", str);
 return (1);
 }
