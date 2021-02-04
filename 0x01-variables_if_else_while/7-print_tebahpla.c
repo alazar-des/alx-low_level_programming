@@ -1,16 +1,14 @@
 #include <stdio.h>
 
 /* lower case alphabet in reverse order */
-int main()
+int main(void)
 {
-  char ch = 'z';
-
-  while (ch >= 'a')
-  {
-    putchar(ch);
-    ch--;
-  }
-  putchar('\n');
-  
-  return (0);
+char ch = 'z';
+while (ch >= 'a')
+{
+putchar(ch);
+ch--;
+}
+putchar('\n');
+return (0);
 }
