@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-/* print all combination of a digit */
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	int i;

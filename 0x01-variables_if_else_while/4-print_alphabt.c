@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-/* Print alphabet except q and e */
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 char ch = 'a';

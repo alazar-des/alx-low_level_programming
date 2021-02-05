@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-/* print base 10 digits using putchar without using char */
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 int i;

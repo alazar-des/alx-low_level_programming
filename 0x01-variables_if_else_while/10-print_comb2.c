@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-/* print number from 00 to 99 using putchar */
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 int i;

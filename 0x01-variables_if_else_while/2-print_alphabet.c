@@ -1,16 +1,20 @@
 #include <stdio.h>
+/**
+ * main - Entry point
+ * Description: print alphabet using putchar
+ * Return: Always 0 (Success)
+ */
 
-/* Print alphabet using putchar */
 int main(void)
 {
-char ch = 'a';
+	char ch = 'a';
 
-while (ch <= 'z')
-{
-putchar(ch);
-ch++;
-}
-putchar('\n');
+	while (ch <= 'z')
+	{
+		putchar(ch);
+		ch++;
+	}
+	putchar('\n');
 
-return (0);
+	return (0);
 }
