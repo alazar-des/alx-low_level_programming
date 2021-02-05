@@ -2,11 +2,15 @@
 #include <time.h>
 /* standard library for input output */
 #include <stdio.h>
-/* print a number whether it is positive negatice or zero */
+/**
+ * main - Entry point
+ * Description: print a number wether it is posetive negative or zero
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 
-	int n; 
+	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
