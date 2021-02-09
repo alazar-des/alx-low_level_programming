@@ -17,7 +17,7 @@ int main(void)
 		if ((i % 3 == 0) || (i % 5 == 0))
 			sum += i;
 	}
-	printf("The sum of these multiples is %d.\n", sum);
+	printf("The sum of these multiples is %d\n", sum);
 
 	return (0);
 }
