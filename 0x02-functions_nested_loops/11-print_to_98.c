@@ -3,7 +3,7 @@
 /**
  * print_digit - print any integer using _putchar
  * @n: integer to be displayed
- */ 
+ */
 void print_digit(int n)
 {
 	if (n < 0)
@@ -14,13 +14,13 @@ void print_digit(int n)
 
 	if (n / 10)
 	{
-		print_digit(n/10);
+		print_digit(n / 10);
 	}
 
-	_putchar(n%10 + '0');
+	_putchar(n % 10 + '0');
 }
 /**
- * _print_to_98 - print all natural number from n to 98 
+ * print_to_98 - print all natural number from n to 98
  * @n: starting natural number
  */
 

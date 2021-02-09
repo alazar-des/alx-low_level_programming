@@ -11,8 +11,6 @@
 
 int main(void)
 {
-	char c[] = "Holberton\n";
-
 	_putchar ('H');
 	_putchar ('o');
 	_putchar ('l');
