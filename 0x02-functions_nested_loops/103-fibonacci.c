@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+/**
+ * main - program entry
+ * Description - add the even sequence numbers in a fibonacci series
+ * which doesn't exceed 4,000,000
+ *
+ * Return: on success 0
+ */
+
+int main(void)
+{
+	long int xn_2 = 0;
+	long int xn_1 = 1;
+	long int xn = 0;
+	long int sum = 0;
+
+	while (xn <= 4000000)
+	{
+		xn = xn_1 + xn_2;
+		xn_2 = xn_1;
+		xn_1 = xn;
+		if ((xn % 2 == 0) && (xn <= 4000000))
+			sum += xn;
+	}
+	printf("%ld\n", sum);
+
+	return (0);
+}
