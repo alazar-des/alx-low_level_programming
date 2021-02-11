@@ -55,17 +55,15 @@ int main(void)
 	while (i <= 100)
 	{
 		if ((i % 3 == 0) && (i % 5 == 0))
-			print_str("FizzBuzz ");
+			print_str("FizzBuzz");
 		else if (i % 3 == 0)
-			print_str("Fizz ");
+			print_str("Fizz");
 		else if (i % 5 == 0)
-			print_str("Buzz ");
+			print_str("Buzz");
 		else
-		{
 			print_int(i);
-			if (i != 100)
-				__putchar(' ');
-		}
+		if (i != 100)
+			__putchar(' ');
 		i++;
 	}
 	__putchar('\n');
