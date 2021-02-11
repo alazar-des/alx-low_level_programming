@@ -9,9 +9,9 @@
 
 int main(void)
 {
-	long double xn_2 = 0;
-	long double xn_1 = 1;
-	long double xn;
+	double xn_2 = 0;
+	double xn_1 = 1;
+	double xn;
 	int i;
 
 	for (i = 0; i < 98; i++)
@@ -20,9 +20,9 @@ int main(void)
 		xn_2 = xn_1;
 		xn_1 = xn;
 		if (i != 97)
-			printf("%Lf, ", xn);
+			printf("%f0, ", xn);
 		else
-			printf("%Lf\n", xn);
+			printf("%f0\n", xn);
 	}
 
 	return (0);
