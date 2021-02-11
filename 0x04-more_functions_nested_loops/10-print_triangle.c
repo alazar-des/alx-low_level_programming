@@ -8,6 +8,8 @@
 
 void print_triangle(int size)
 {
+	if (size > 0)
+	{
 	int i, s, h;
 
 	for (i = 0; i < size; i++)
@@ -18,6 +20,7 @@ void print_triangle(int size)
 			_putchar('#');
 		_putchar('\n');
 	}
-	if (size == 0)
+	}
+	else
 		_putchar('\n');
 }
