@@ -1,31 +1,8 @@
-#include <unistd.h>
-
-/**
- * _putchar - print character
- * @c: character to be printed
- *
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
- * __putchar - print intiger
- * @n: intiger input
- *
- */
-void __putchar(int n)
-{
-	if (n / 10)
-		__putchar(n / 10);
-	_putchar('0' + n % 10);
-}
+#include <stdio.h>
 
 /**
  * prime_factz - find the largest prime factor
  * @n: input number
- * @i: factorial
  *
  * Return: largest prime factor
  */
@@ -37,7 +14,8 @@ int prime_factz(int n)
 	{
 		if (n % i == 0)
 		{
-			prime_factz(n / i);
+			n = n / i;
+			prime_factz(n);
 		}
 		i++;
 	}
@@ -51,12 +29,11 @@ int prime_factz(int n)
  */
 int main(void)
 {
-	int n = 20;
+	long int n = 612852475143;
 
-	int pri = prime_factz(n);
+	long int pri = prime_factz(n);
 
-	__putchar(pri);
+	printf("%ld\n", pri);
 
-	_putchar('\n');
 	return (0);
 }
