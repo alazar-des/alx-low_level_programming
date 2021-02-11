@@ -29,17 +29,19 @@ void __putchar(int n)
  *
  * Return: largest prime factor
  */
-int prime_factz(int n, int i)
+int prime_factz(int n)
 {
-	int pri = n;
+	int i = 2;
 
-	if (n % i == 0)
+	while (i < n / 2)
 	{
-		prime_factz(n / i, i);
-		pri = i;
+		if (n % i == 0)
+		{
+			prime_factz(n / i);
+		}
+		i++;
 	}
-	
-	return pri;
+	return (n);
 }
 
 /**
@@ -49,15 +51,9 @@ int prime_factz(int n, int i)
  */
 int main(void)
 {
-	int i = 2;
 	int n = 20;
-	int pri;
 
-	while (i < n / 2)
-	{
-		pri = prime_factz(n, i);
-		i++;
-	}
+	int pri = prime_factz(n);
 
 	__putchar(pri);
 
