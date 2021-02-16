@@ -30,7 +30,7 @@ void rev_string(char *s)
 	int i = 0;
 
 	l = _sizeof(s) - 1;
-	while (i < l / 2)
+	while (i <= l / 2)
 	{
 		c = *(s + l - i);
 		*(s + l - i) = *(s + i);
