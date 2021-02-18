@@ -10,13 +10,11 @@ char *rot13(char *str)
 
 	while (*str != '\0')
 	{
-		if (*str >= 65 && *str <= 90)
-			*str = ((*str - 65 + 13) % 26) + 65;
-		else if (*str >= 97 && *str <= 122)
-			*str = ((*str - 97 + 13) % 26) + 97;
-
+		if ((*str >= 65 && *str <= 90) || (*str >= 97 && *str <= 122))
+		{
+			*str = *str >= 65 && *str < 90 ? (((*str - 65 + 13) % 26) + 65) : ((*str - 97 + 13) % 26) + 97;
+		}
 		str++;
 	}
-
 	return (p);
 }
