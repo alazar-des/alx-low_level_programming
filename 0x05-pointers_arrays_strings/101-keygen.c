@@ -18,7 +18,7 @@ void gen(int c, char pwd[])
 
 	while (i < c)
 	{
-		s = rand() % 3;
+		s = rand() % 4;
 		switch (s)
 		{
 		case 0:
@@ -29,6 +29,9 @@ void gen(int c, char pwd[])
 			break;
 		case 2:
 			pwd[i] = (rand() % 9) + '0';
+			break;
+		case 3:
+			pwd[i] = ((rand() % 15) + 12);
 			break;
 		}
 		i++;

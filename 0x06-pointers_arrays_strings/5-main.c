@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
  * main - check the code for Holberton School students.
@@ -7,9 +8,11 @@
  */
 int main(void)
 {
-	char *str;
+	char s[] = "Holberton School!\n";
+	char *p;
 
-	str = "0123456789";
-	puts_half(str);
+	p = string_toupper(s);
+	printf("%s", p);
+	printf("%s", s);
 	return (0);
 }

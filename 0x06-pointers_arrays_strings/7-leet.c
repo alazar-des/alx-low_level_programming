@@ -1,0 +1,29 @@
+/**
+ * leet - encode a string into 1337
+ * @str: input string
+ *
+ * Return: pointer to string
+ */
+char *leet(char *str)
+{
+	char *p = str;
+	int i;
+	char s[10] = {'a', 'A', 'e', 'E', 'o', 'O', 'T', 't', 'l', 'L'};
+	char t[10] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'};
+
+	while (*str != '\0')
+	{
+		i = 0;
+		while (i < 10)
+		{
+			if (*str == s[i])
+			{
+				*str = t[i];
+				break;
+			}
+			i++;
+		}
+		str++;
+	}
+	return (p);
+}

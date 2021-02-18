@@ -1,0 +1,48 @@
+/**
+ * _sizeof - calculate size of a string
+ * @str: input string
+ *
+ * Return: size of string
+ */
+int _sizeof(char *str)
+{
+	int len = 0;
+
+	while (*str != '\0')
+	{
+		len++;
+		str++;
+	}
+	return (len);
+}
+/**
+ * _strncat - concatinate n characters into destination
+ * @dest: destination pointer
+ * @src: source pointer
+ *
+ * Return: destination pointer
+ */
+char *_strncat(char *dest, char *src, int n)
+{
+	char *p = dest;
+	int len;
+	int l;
+
+	len = _sizeof(src);
+	if (n <= len)
+		l = n;
+	else
+		l = len;
+	while (*dest != '\0')
+		dest++;
+	while (l > 0)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		l--;
+	}
+	*dest = '\0';
+
+	return (p);
+}
