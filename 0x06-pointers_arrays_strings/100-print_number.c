@@ -21,7 +21,7 @@ int _abs(int n)
  */
 void print_number(int n)
 {
-	if ( n < 0)
+	if (n < 0)
 		_putchar('-');
 	if (n / 10)
 		print_number(_abs(n / 10));

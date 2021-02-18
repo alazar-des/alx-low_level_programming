@@ -7,6 +7,7 @@
 char *rot13(char *str)
 {
 	char *p = str;
+	int i = 0;
 
 	while (*str != '\0')
 	{
@@ -15,6 +16,9 @@ char *rot13(char *str)
 			*str = *str >= 65 && *str < 90 ? (((*str - 65 + 13) % 26) + 65) : ((*str - 97 + 13) % 26) + 97;
 		}
 		str++;
+		while (i < 26)
+			i++;
 	}
+
 	return (p);
 }
