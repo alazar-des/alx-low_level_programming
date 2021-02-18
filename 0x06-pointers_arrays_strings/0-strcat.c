@@ -3,7 +3,7 @@
  * @dest: destingation pointer
  * @src: source pointer
  *
- * Retrun: start of destination pointer
+ * Return: start of destination pointer
  */
 char *_strcat(char *dest, char *src)
 {
