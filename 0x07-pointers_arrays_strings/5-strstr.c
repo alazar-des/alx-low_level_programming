@@ -1,3 +1,5 @@
+#include <stddef.h>
+
 /**
  * _cmpstr - compare two strings if they are identical
  * @str1: first string
@@ -44,5 +46,5 @@ char *_strstr(char *haystack, char *needle)
 		i++;
 	}
 
-	return (0);
+	return (NULL);
 }
