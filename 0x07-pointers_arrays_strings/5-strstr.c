@@ -7,16 +7,16 @@
  */
 char *_cmpstr(char *str1, char *str2)
 {
-  int i = 0;
-  
-  while (str1[i] != '\0')
-    {
-      if (str1[i] != str2[i])
-	return (0);
-      i++;
-    }
+	int i = 0;
 
-  return (str2);
+	while (str1[i] != '\0')
+	{
+		if (str1[i] != str2[i])
+			return (0);
+		i++;
+	}
+
+	return (str2);
 }
 
 /**
@@ -29,20 +29,20 @@ char *_cmpstr(char *str1, char *str2)
  */
 char *_strstr(char *haystack, char *needle)
 {
-  unsigned int i;
-  char *p;
+	unsigned int i;
+	char *p;
 
-  i = 0;
-  while (haystack[i] != '\0')
-    {
-      if (haystack[i] == needle[0])
+	i = 0;
+	while (haystack[i] != '\0')
 	{
-	  p = _cmpstr(needle, &haystack[i]);
-	  if (p)
-	    return (p);	      	 
+		if (haystack[i] == needle[0])
+		{
+			p = _cmpstr(needle, &haystack[i]);
+			if (p)
+				return (p);
+		}
+		i++;
 	}
-      i++;
-    }
-  
-  return (0);
+
+	return (0);
 }
