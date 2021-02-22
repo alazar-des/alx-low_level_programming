@@ -9,13 +9,14 @@
  */
 char *_cmpstr(char *str1, char *str2)
 {
-	int i = 0;
+	char *p = str2;
 
-	while (str1[i] != '\0')
+	while (*(str1) != '\0')
 	{
-		if (str1[i] != str2[i])
+		if (*str1 != *p)
 			return (0);
-		i++;
+		p++;		
+		str1++;
 	}
 
 	return (str2);
@@ -31,19 +32,17 @@ char *_cmpstr(char *str1, char *str2)
  */
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i;
 	char *p;
 
-	i = 0;
-	while (haystack[i] != '\0')
+	while (*haystack != '\0')
 	{
-		if (haystack[i] == needle[0])
+		if (*haystack == needle[0])
 		{
-			p = _cmpstr(needle, &haystack[i]);
+			p = _cmpstr(needle, haystack);
 			if (p)
 				return (p);
 		}
-		i++;
+		haystack++;
 	}
 
 	return (NULL);
