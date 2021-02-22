@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+/**
+ * print_diagsums - print the sums of the diagonals
+ * @a: input array the sum to be calculated
+ * @size: size of the array
+ *
+ */
+void print_diagsums(int *a, int size)
+{
+  long int sum1, sum2;
+  int i;
+
+  sum1 = 0;
+  sum2 = 0;
+  for (i = 0; i < size; i++)
+    {
+      sum1 += a[i + size * i];
+      sum2 += a[size - 1 - i + size * i];
+    }
+  printf("%ld, %ld\n", sum1, sum2);
+}
