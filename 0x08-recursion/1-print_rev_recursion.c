@@ -9,7 +9,7 @@
 void _reverseString(char *s)
 {
 	if (*s != '\0')
-		_reverseString(s + 1);
+		_reverseString(++s);
 	_putchar(*s);
 }
 
