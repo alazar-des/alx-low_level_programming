@@ -15,7 +15,7 @@ char *_cmpstr(char *str1, char *str2)
 	{
 		if (*str1 != *p)
 			return (0);
-		p++;		
+		p++;
 		str1++;
 	}
 
