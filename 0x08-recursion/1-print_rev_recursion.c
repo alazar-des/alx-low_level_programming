@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include "holberton.h"
 
 /**
  * _reverseString - print string in reverse
@@ -9,7 +10,7 @@ void _reverseString(char *s)
 {
 	if (*s != '\0')
 		_reverseString(s + 1);
-	write(1, s, 1);
+	_putchar(*s);
 }
 
 /**
@@ -20,4 +21,5 @@ void _reverseString(char *s)
 void _print_rev_recursion(char *s)
 {
 	_reverseString(s);
+	_putchar('\n');
 }
