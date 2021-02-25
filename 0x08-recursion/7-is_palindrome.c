@@ -23,8 +23,8 @@ int _substract(char *str, unsigned long int len, unsigned long int i)
 {
 	if (i < len / 2)
 	{
-		if (str[i] == str[len - 1 - i])
-			return (0 + _substract((str + 1), len - 2, i + 1));
+		if (str[0] == str[len - 1])
+			return (0 + _substract((str + 1), len - 2, i));
 		else
 			return (1);
 	}

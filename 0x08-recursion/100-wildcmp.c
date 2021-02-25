@@ -1,30 +1,43 @@
 /**
- * _incrmt - increment pointer tile the character is not *
+ * inc_char - increment pointer tile the character is not *
  * @s: input string
  *
  * Return: character pointer
  */
-char *_incrmt(char *s)
+int inc_char(char *s)
 {
 	if (*s == '*')
-		_incrmt(s + 1);
-	return (s);
+		return (1 + inc_char(s + 1));
+	return (0);
 }
 
 /**
- * _srcheql - search character untile equal character
- * @s1: string one
- * @c: string two
+ * rtn_pointer - return pointer
+ * @s: input string
+ * @c: character to compare with
  *
- * Return: pointer of the string
+ * Return: pointer difference
  */
-char *_srcheql(char *s, char c)
+int rtn_pointer(char *s, char c)
 {
-	if (*s == '\0')
-		return (s);
 	if (*s != c)
-		_srcheql(s + 1, c);
-	return (s);
+		return (1 + rtn_pointer(s - 1, c));
+	return (0);
+}
+
+/**
+ * inc_eql - increament untile with character is equal
+ * @s: input string
+ * @c: input character to compare with
+ *
+ * Return: when equal string pointer
+ */
+char *inc_eql(char *s, char c)
+{
+	if (*s != '\0')
+		return (inc_eql(++s, c));
+
+	return (s - rtn_pointer(s, c));
 }
 
 /**
@@ -40,21 +53,19 @@ int _strcmp(char *s1, char *s2)
 		return (0);
 	if (*s1 == '*')
 	{
-		if (_incrmt(s1) == '\0')
-			return 0;
-		if (*s2 == '*')
-		{
-			if(_incrmt(s2) == '\0')
-				return (0);
-		}
-		else
-			_srcheql(s2, *s1);
+		s1 += inc_char(s1);
+		if (s1 == '\0')
+			return (0);
+		if (*s2 != '\0')
+			s2 = inc_eql(s2, *s1);
 	}
 	if (*s2 == '*')
 	{
-		if (_incrmt(s2) == '\0')
-			return (0);
-		_srcheql(s1, *s2);
+	s2 += inc_char(s2);
+	if (*s2 == '\0')
+		return (0);
+	if (*s1 != '\0')
+		s1 = inc_eql(s1, *s2);
 	}
 	if (*s1 == *s2)
 		return (0 + _strcmp(s1 + 1, s2 + 1));
@@ -70,8 +81,7 @@ int _strcmp(char *s1, char *s2)
  */
 int wildcmp(char *s1, char *s2)
 {
-  if (_strcmp(s1, s2) == 0)
-    return 1;
-  return 0;
+	if (_strcmp(s1, s2) == 0)
+		return (1);
+	return (0);
 }
-  

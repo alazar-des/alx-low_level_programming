@@ -9,8 +9,10 @@
 void _reverseString(char *s)
 {
 	if (*s != '\0')
-		_reverseString(++s);
-	write(1, s, 1);
+		_reverseString(s + 1);
+	else
+		return;
+	_putchar(*s);
 }
 
 /**
@@ -20,8 +22,5 @@ void _reverseString(char *s)
  */
 void _print_rev_recursion(char *s)
 {
-	char c = '\n';
-
 	_reverseString(s);
-	write(1, &c, 1);
 }
