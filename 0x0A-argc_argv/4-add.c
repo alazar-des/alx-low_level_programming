@@ -99,7 +99,15 @@ int main(int argc, char *argv[])
 			d = 0;
 			n = argv[i];
 			if (*n == '-')
-				n++;
+			{
+				if (*(n + 1) == '\0')
+				{
+					_print_str("Error\n");
+					return (1);
+				}
+				else
+					n++;
+			}
 			while (*n != '\0')
 			{
 				if (!(*n >= 48 && *n <= 57))

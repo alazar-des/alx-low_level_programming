@@ -28,9 +28,9 @@ int main(int argc, char *argv[])
 {
 	char c;
 
-	UNUSED (argv);
+	UNUSED(argv);
 	_print(argc - 1);
 	c = '\n';
-	write(1, &c, 1);	
+	write(1, &c, 1);
 	return (0);
 }
