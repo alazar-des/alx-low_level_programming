@@ -1,0 +1,125 @@
+#include <unistd.h>
+
+/**
+ * _pow - return absolute value
+ * @x: base
+ * @y: exponent
+ *
+ * Return: the power value
+ */
+int _pow(int x, int y)
+{
+	if (y > 0)
+		return (x * _pow(x, y - 1));
+	else
+		return (1);
+}
+
+/**
+ * _print - print integer to standard output
+ * @n: input integer
+ *
+ */
+void _print(int n)
+{
+	int r;
+
+	if (n / 10)
+		_print(n / 10);
+	if (r < 0)
+		r = (-r % 10) + '0';
+	else
+		r = (r % 10) + '0';
+	write(1, &r, 1);
+}
+
+/**
+ * _printstr - print string to standard output
+ * @s: input string
+ *
+ */
+void _printstr(char *s)
+{
+	if (*s != '\0')
+	{
+		write(1, s, 1);
+		_printstr(s + 1);
+	}
+}
+
+/**
+ * _atoi - convert ascii to integer
+ * @s: input string
+ * @d:string length
+ *
+ * Return: integer
+ */
+int _atoi(char *s, int d)
+{
+	int mul, v;
+
+	v = 1;
+	mul = 0;
+	if (*s == '-')
+	{
+		s++;
+		v = -1;
+	}
+	while (*s != '\0')
+	{
+		mul += (*s - 48) * _pow(10, d - 1);
+		s++;
+		d--;
+	}
+	return (v * mul);
+}
+
+/**
+ * main - program entry
+ * Description - multiply to numbers
+ * @argc: number of input arguments
+ * @argv: argument vector
+ *
+ * Return: on success 0
+ */
+int main(int argc, char *argv[])
+{
+	int d, i, mul;
+	char *n;
+
+	mul = 0;
+	i = 1;
+	d = 0;
+	if (argc > 2)
+	{
+		while (i < argc)
+		{
+			d = 0;
+			n = argv[i];
+			if (*n == '-')
+				n++;
+			while (*n != '\0')
+			{
+				if (!(*n >= 48 && *n <= 57))
+				{
+					_printstr("Error\n");
+					return (1);
+				}
+				d++;
+				n++;
+			}
+			mul += _atoi(argv[i], d);
+			i++;
+		}
+		if (mul < 0)
+			_printstr("-");
+		_print(mul);
+		_printstr("\n");
+		return (0);
+	}
+	else
+	{
+		_printstr("Error\n");
+		return (1);
+	}
+}
