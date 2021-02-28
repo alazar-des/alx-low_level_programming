@@ -85,19 +85,14 @@ void _print_dig(int n)
  */
 int main(int argc, char *argv[])
 {
-	int i, d;
+	int i = 1, d = 0, sum = 0;
 	char *n;
-	int sum;
 
-	sum = 0;
-	i = 1;
-	d = 0;
 	if (argc > 2)
 	{
 		while (i < argc)
 		{
-			d = 0;
-			n = argv[i];
+			d = 0, n = argv[i];
 			if (*n == '-')
 			{
 				if (*(n + 1) == '\0')
@@ -115,11 +110,9 @@ int main(int argc, char *argv[])
 					_print_str("Error\n");
 					return (1);
 				}
-				d++;
-				n++;
+				d++, n++;
 			}
-			sum += _atoi(argv[i], d);
-			i++;
+			sum += _atoi(argv[i], d), i++;
 		}
 		if (sum < 0)
 			_print_str("-");
@@ -129,7 +122,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		_print_str("Error\n");
-		return (1);
+		_print_str("0\n");
+		return (0);
 	}
 }

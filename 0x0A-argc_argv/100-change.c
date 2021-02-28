@@ -27,8 +27,7 @@ int _atoi(char *s, int n)
 {
 	int sum, v;
 
-	v = 1;
-	sum = 0;
+	v = 1, sum = 0;
 	if (*s == '-')
 	{
 		s++;
@@ -92,19 +91,17 @@ int main(int argc, char *argv[])
 	{
 		if (*argv[1] == '-')
 		{
-			_print_str("Error\n");
-			return (1);
+			_print_dig(0);
+			_print_str("\n");
+			return (0);
 		}
-		d = 0;
-		c = argv[1];
+		d = 0, c = argv[1];
 		while (*c != '\0')
 		{
-			d++;
-			c++;
+			d++, c++;
 		}
 		n = _atoi(argv[1], d);
-		count = 0;
-		i = 0;
+		count = 0, i = 0;
 		while (i < 5)
 		{
 			if (n / a[i] != 0)
@@ -123,7 +120,6 @@ int main(int argc, char *argv[])
 		_print_str("Error\n");
 		return (1);
 	}
-
 	_print_dig(count);
 	_print_str("\n");
 	return (0);
