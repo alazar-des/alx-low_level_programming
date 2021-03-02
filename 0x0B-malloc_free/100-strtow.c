@@ -32,8 +32,10 @@ int count_words(char *s)
 	count = 0;
 	while (*s != '\0')
 	{
-		while (*s == ' ' && *s != '\0')
+		while (*s == ' ')
 			s++;
+		if (*s == '\0')
+			return (count);
 		while (*s != ' ' && *s != '\0')
 			s++;
 		count++;
@@ -67,23 +69,23 @@ void cpy_str(char *s1, char *s2)
 char **word_cpy(char *s, int w)
 {
 	char **crt;
-	int i;
+	int i, sz;
 
 	crt = malloc(w * sizeof(char *));
 	if (crt == NULL)
 		return (NULL);
 	i = 0;
-	while (i < w - 1)
+	while (i < w)
 	{
-		while (*s == ' ' && *s != '\0')
+		while (*s == ' ')
 			s++;
-		if (*s != '\0')
-		{
-			crt[i] = malloc(_sizeof(s) + 1);
-			if (crt[i] == NULL)
-				return (NULL);
-			cpy_str(s, crt[i]);
-		}
+		sz = _sizeof(s);
+
+		crt[i] = malloc(sz + 1);
+		if (crt[i] == NULL)
+			return (NULL);
+		cpy_str(s, crt[i]);
+		s += sz;
 		i++;
 	}
 	return (crt);
