@@ -1,0 +1,46 @@
+#include <stdlib.h>
+
+/**
+ * _sizeof - return number of character in a string
+ * @s: input string
+ *
+ * Return: number of characters
+ */
+int _sizeof(char *s)
+{
+	int count;
+
+	count = 0;
+	while (*s != '\0')
+	{
+		count++;
+		s++;
+	}
+	return (count - 1);
+}
+
+/**
+ * _strdup - duplicate string
+ * @str: string to be duplicated
+ *
+ * Return: the new pointer for the duplicate string
+ */
+char *_strdup(char *str)
+{
+	char *s;
+	int i, n;
+
+	if (str == NULL)
+		return (NULL);
+	n = _sizeof(str);
+	s = malloc(n + 1);
+	if (s == NULL)
+		return (NULL);
+	while (i < n)
+	{
+		s[i] = str[i];
+		i++;
+	}
+	s[i] = '\0';
+	return (s);
+}
