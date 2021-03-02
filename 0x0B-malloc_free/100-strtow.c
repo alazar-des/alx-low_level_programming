@@ -1,5 +1,5 @@
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
  * _sizeof - return number of character in a string
  * @s: input string
@@ -34,13 +34,11 @@ int count_words(char *s)
 	{
 		while (*s == ' ')
 			s++;
-		if (*s == '\0')
-			return (count);
 		while (*s != ' ' && *s != '\0')
 			s++;
 		count++;
 	}
-	return count;
+	return (count);
 }
 
 /**
@@ -71,7 +69,7 @@ char **word_cpy(char *s, int w)
 	char **crt;
 	int i, sz;
 
-	crt = malloc(w * sizeof(char *));
+	crt = malloc(w * 8);
 	if (crt == NULL)
 		return (NULL);
 	i = 0;
