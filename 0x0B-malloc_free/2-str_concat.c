@@ -16,7 +16,7 @@ int _sizeof(char *s)
 		count++;
 		s++;
 	}
-	return (count - 1);
+	return (count);
 }
 
 /**
@@ -36,7 +36,7 @@ char *str_concat(char *s1, char *s2)
 	size2 = _sizeof(s2);
 	if (size1 + size2 == 0)
 		return (NULL);
-	con = malloc(size1 + size2 + 2);
+	con = malloc(size1 + size2 + 1);
 	while (i < size1 + size2)
 	{
 		while (i < size1)
@@ -44,8 +44,6 @@ char *str_concat(char *s1, char *s2)
 			con[i] = s1[i];
 			i++;
 		}
-		con[i] = ' ';
-		i++;
 		while (j < size2)
 		{
 			con[i] = s2[j];
