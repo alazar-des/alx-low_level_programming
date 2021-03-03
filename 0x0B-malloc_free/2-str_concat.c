@@ -46,11 +46,11 @@ char *str_concat(char *s1, char *s2)
 	int size1, size2;
 	char *con;
 
-	if (s1 != NULL)
+	if (s1 != NULL || *s1 != '\0')
 		size1 = _sizeof(s1);
 	else
 		size1 = 0;
-	if (s2 != NULL)
+	if (s2 != NULL || *s2 != '\0')
 		size2 = _sizeof(s2);
 	else
 		size2 = 0;
