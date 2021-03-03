@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <stdio.h>
+
 /**
  * _sizeof - return number of character in a string
  * @s: input string
@@ -13,6 +13,8 @@ int _sizeof(char *s)
 	count = 0;
 	while (*s != ' ')
 	{
+		if (*s == '\0')
+			break;
 		count++;
 		s++;
 	}
@@ -34,9 +36,12 @@ int count_words(char *s)
 	{
 		while (*s == ' ')
 			s++;
-		while (*s != ' ' && *s != '\0')
-			s++;
-		count++;
+		if (*s != '\0')
+		{
+			count++;
+			while (*s != ' ' && *s != '\0')
+				s++;
+		}
 	}
 	return (count);
 }
@@ -69,7 +74,7 @@ char **word_cpy(char *s, int w)
 	char **crt;
 	int i, sz;
 
-	crt = malloc(w * 8);
+	crt = malloc(w * sizeof(char *));
 	if (crt == NULL)
 		return (NULL);
 	i = 0;
@@ -78,14 +83,20 @@ char **word_cpy(char *s, int w)
 		while (*s == ' ')
 			s++;
 		sz = _sizeof(s);
-
 		crt[i] = malloc(sz + 1);
 		if (crt[i] == NULL)
+		{
+			while (i >= 0)
+				free(crt[i]);
+			free(crt);
 			return (NULL);
+		}
 		cpy_str(s, crt[i]);
 		s += sz;
 		i++;
 	}
+	if (crt[i] != NULL)
+		crt[i] = NULL;
 	return (crt);
 }
 
@@ -99,6 +110,8 @@ char **strtow(char *str)
 {
 	int words;
 
+	if (str == NULL || *str == '\0')
+		return (NULL);
 	words = count_words(str);
 	return (word_cpy(str, words));
 }
