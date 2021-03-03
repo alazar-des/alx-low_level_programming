@@ -21,8 +21,8 @@ int _sizeof(char *s)
 
 /**
  * cpy_str - copy string from s1 to s2
- * @s1: source
- * @s2: destination
+ * @src: source
+ * @dest: destination
  *
  */
 void cpy_str(char *src, char *dest)
@@ -55,7 +55,7 @@ char *str_concat(char *s1, char *s2)
 	else
 		size2 = 0;
 	if (size1 + size2 == 0)
-		return (0);
+		return (NULL);
 	con = malloc(size1 + size2 + 1);
 	if (con == NULL)
 		return (NULL);
