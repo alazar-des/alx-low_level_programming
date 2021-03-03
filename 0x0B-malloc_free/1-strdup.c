@@ -16,7 +16,7 @@ int _sizeof(char *s)
 		count++;
 		s++;
 	}
-	return (count - 1);
+	return (count);
 }
 
 /**
