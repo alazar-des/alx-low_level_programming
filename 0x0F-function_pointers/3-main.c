@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "3-calc.h"
 
 /**
@@ -12,7 +12,7 @@
  */
 int main(int argc, char *argv[])
 {
-	char op;
+	char p, l;
 	int (*fun)(int, int);
 
 	if (argc != 4)
@@ -20,14 +20,14 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-	op = argv[2][0];
-	if (argv[2][1] != '\0' || !(op == '+' || op == '-' || op == '*' || op == '/' \
-				    || op == '%'))
+	p = argv[2][0];
+	l = argv[2][1];
+	if (l != '\0' || !(p == '+' || p == '-' || p == '*' || p == '/' || p == '%'))
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if ((op == '/' || op == '%') && (atoi(argv[3]) == 0))
+	if ((p == '/' || p == '%') && (atoi(argv[3]) == 0))
 	{
 		printf("Error\n");
 		exit(100);
