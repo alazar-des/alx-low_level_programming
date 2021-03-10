@@ -1,5 +1,4 @@
 #include "3-calc.h"
-int i = 0;
 
 /**
  * get_op_func - return function pointer according input opererator
@@ -17,11 +16,13 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
+	static int i;
 
 	if (*ops[i].op != *s)
 	{
 		i++;
 		get_op_func(s);
 	}
+
 	return (ops[i].f);
 }
