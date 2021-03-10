@@ -9,7 +9,7 @@ void _print(char *str)
 {
 	char nl = '\n';
 
-	while (*str != '\0')
+	while (*str)
 	{
 		write(1, str, 1);
 		str++;
