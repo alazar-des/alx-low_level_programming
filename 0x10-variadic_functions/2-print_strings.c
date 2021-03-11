@@ -22,10 +22,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		for (i = 0; i < n; i++)
 		{
 			str = va_arg(args, char *);
-			if (str == NULL || *str == '\0')
-				printf("(nil)");
-			else
-				printf("%s", str);
+			if (*str != '\0')
+			{
+				if (str == NULL)
+					printf("(nil)");
+				else
+					printf("%s", str);
+			}
 		}
 		printf("\n");
 	}
@@ -34,15 +37,21 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		for (i = 0; i < n - 1; i++)
 		{
 			str = va_arg(args, char *);
-			if (str == NULL || *str == '\0')
-				printf("(nil)%s", separator);
-			else
-				printf("%s%s", str, separator);
+			if (*str != '\0')
+			{
+				if (str == NULL)
+					printf("(nil)%s", separator);
+				else
+					printf("%s%s", str, separator);
+			}
 		}
 		str = va_arg(args, char *);
-		if (str == NULL || *str == '\0')
-			printf("(nil)\n");
-		else
-			printf("%s\n", str);
+		if (*str != '\0')
+		{
+			if (str == NULL)
+				printf("(nil)\n");
+			else
+				printf("%s\n", str);
+		}
 	}
 }
