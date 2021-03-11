@@ -9,7 +9,7 @@ void _print(char *str)
 {
 	char nl = '\n';
 
-	while (*str != '\0')
+	while (*str)
 	{
 		write(1, str, 1);
 		str++;
@@ -25,7 +25,7 @@ void _print(char *str)
  */
 void print_name(char *name, void (*f)(char *))
 {
-	if (name == NULL)
+	if (name == NULL || f == NULL)
 		return;
 	f(name);
 }

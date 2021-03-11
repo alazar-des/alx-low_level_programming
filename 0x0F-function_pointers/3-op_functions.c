@@ -1,5 +1,5 @@
 /**
- * op_sub - return of addition of two numbers
+ * op_add - return of addition of two numbers
  * @a: first number
  * @b: second number
  *
