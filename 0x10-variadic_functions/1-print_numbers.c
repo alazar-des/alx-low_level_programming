@@ -12,27 +12,22 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
 	unsigned int i;
-	int num;
 
-	if (n == 0)
-		return;
+	if (n > 0)
+	{
 	va_start(args, n);
 	if (separator == NULL)
 	{
 		for (i = 0; i < n - 1; i++)
-		{
-			num = va_arg(args, int);
-			printf("%d", num);
-		}
-		printf("%d\n", va_arg(args, int));
+			printf("%d", va_arg(args, int));
+		printf("%d", va_arg(args, int));
 	}
 	else
 	{
 		for (i = 0; i < n - 1; i++)
-		{
-			num = va_arg(args, int);
-			printf("%d%s", num, separator);
-		}
-		printf("%d\n", va_arg(args, int));
+			printf("%d%s", va_arg(args, int), separator);
+		printf("%d", va_arg(args, int));
 	}
+	}
+	printf("\n");
 }
