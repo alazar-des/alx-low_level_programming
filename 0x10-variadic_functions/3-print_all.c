@@ -7,9 +7,9 @@
  * @c: input character
  *
  */
-void print_char(char c)
+void print_char(int c)
 {
-	printf("%c", c);
+	printf("%c", (char)c);
 }
 
 /**
@@ -27,9 +27,9 @@ void print_integer(int n)
  * @f: input float
  *
  */
-void print_float(float f)
+void print_float(double f)
 {
-	printf("%f", f);
+	printf("%f", (float)f);
 }
 
 /**
@@ -39,53 +39,58 @@ void print_float(float f)
  */
 void print_string(char *s)
 {
-	if (s == NULL)
+	while (s == NULL)
+	{
 		printf("(nil)");
-	else
-		printf("%s", s);
+		return;
+	}
+	printf("%s", s);
 }
 
 /**
- * print_all - print any input
- * @format: format of the input string
+ * print_all - print any and as many input
+ * @format: fomat of the input to be printed
  *
  */
 void print_all(const char * const format, ...)
 {
 	va_list arg;
-	int i;
+	int i, j;
 	char c;
 
-	i = 0;
-	va_start(arg, format);
-	while (format[i])
+	i = 0, j = 0;
+	if (format != NULL)
 	{
-		c = format[i];
-		if (i != 0 && (c == 'c' || c == 'i' || c == 'f' || c == 's'))
-			printf(", ");
-		switch (c)
+		va_start(arg, format);
+		while (format[i])
 		{
-		case 'c':
-			print_char((char)va_arg(arg, int));
-			i++;
-			break;
-		case 'i':
-			print_integer(va_arg(arg, int));
-			i++;
-			break;
-		case 'f':
-			print_float((float)va_arg(arg, double));
-			i++;
-			break;
-		case 's':
-			print_string(va_arg(arg, char *));
-			i++;
-			break;
-		default:
-			i++;
-			break;
+			c = format[i];
+			if (j != 0 && (c == 'c' || c == 'i' || c == 'f' || c == 's'))
+				printf(", ");
+			switch (c)
+			{
+			case 'c':
+				print_char(va_arg(arg, int));
+				i++, j++;
+				break;
+			case 'i':
+				print_integer(va_arg(arg, int));
+				i++, j++;
+				break;
+			case 'f':
+				print_float(va_arg(arg, double));
+				i++, j++;
+				break;
+			case 's':
+				print_string(va_arg(arg, char *));
+				i++, j++;
+				break;
+			default:
+				i++;
+				break;
+			}
 		}
+		va_end(arg);
 	}
-	va_end(arg);
 	printf("\n");
 }
