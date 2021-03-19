@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lists.h"
-#include <stdio.h>
+
 /**
  * add_node_end - add a new node at the begining
  * @head: address of the head node
