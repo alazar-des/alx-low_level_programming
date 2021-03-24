@@ -3,14 +3,20 @@
 #include "lists.h"
 
 /**
- * _prntf - print integer to standard output
+ * _printf - print integer to standard output
  * @n: input integer
  *
  */
-void _printf(size_t n)
+void _printf(int n)
 {
 	char c;
 
+	if (n < 0)
+	{
+		c = '-';
+		write(1, &c, 1);
+		n = -n;
+	}
 	if (n / 10)
 		_printf(n / 10);
 	c = (n % 10) + '0';
@@ -29,7 +35,7 @@ size_t print_listint(const listint_t *h)
 	char nl = '\n';
 
 	len = 0;
-	if (h != NULL || h->next != NULL)
+	if (h != NULL)
 	{
 		for (; h->next != NULL; h = h->next)
 		{
