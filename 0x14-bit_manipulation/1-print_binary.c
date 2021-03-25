@@ -43,7 +43,7 @@ void print_binary(unsigned long int n)
 	else
 	{
 		len = count_digit(n);
-		len *= 3;
+		len *= 4;
 		lp = 0;
 		while (lp < len)
 		{
