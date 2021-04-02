@@ -22,9 +22,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		return (0);
 	buf = malloc(letters);
+	if (buf == NULL)
+		return (0);
 	rlen = read(fd, buf, letters);
+	if (rlen == -1)
+		return (0);
 	wlen = write(1, buf, rlen);
 	if (wlen != rlen)
 		return (0);
-	return (rlen);
+	if (buf != NULL)
+		free(buf);
+	fd = close(fd);
+	if (fd == -1)
+		return (0);
+	return (wlen);
 }
