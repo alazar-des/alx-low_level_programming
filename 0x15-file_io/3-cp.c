@@ -48,32 +48,32 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	fdr = open(argv[1], O_RDONLY);
 	if (fdr == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	fdw = open(argv[2], O_CREAT | O_WRONLY | O_APPEND | O_TRUNC, 0664);
 	if (fdw == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	_cpy(fdr, fdw, argv[1], argv[2]);
 	c = close(fdr);
 	if (c == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fdr);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdr);
 		exit(100);
 	}
 	c = close(fdw);
 	if (c == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fdw);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdw);
 		exit(100);
 	}
 	return (0);
