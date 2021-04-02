@@ -26,12 +26,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	rlen = read(fd, buf, letters);
 	if (rlen == -1)
+	{
+		if (buf != NULL)
+			free(buf);
 		return (0);
+	}
 	wlen = write(1, buf, rlen);
 	if (wlen != rlen)
+	{
+		if (buf != NULL)
+			free(buf);
 		return (0);
-	if (buf != NULL)
-		free(buf);
+	}
 	fd = close(fd);
 	if (fd == -1)
 		return (0);
