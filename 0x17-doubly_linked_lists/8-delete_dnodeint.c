@@ -2,7 +2,7 @@
 #include "lists.h"
 #include <stdio.h>
 /**
- * find_last_node - returns the last node
+ * find_end_nodex - returns the last node
  * @h: pointer to the head node
  *
  * Return: the last node
@@ -26,7 +26,7 @@ dlistint_t *find_end_nodex(dlistint_t *h)
 	return (end);
 }
 /**
- * get_dnodeint_at_index - return the node pointer at a given index
+ * delete_dnodeint_at_index - return the node pointer at a given index
  * @head: pointer to head node
  * @index: node index to be returned
  *
@@ -37,7 +37,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	unsigned int i = 0;
 	dlistint_t *h = *head, *end;
 
-	if (head == NULL|| *head == NULL)
+	if (head == NULL || *head == NULL)
 		return (-1);
 	end = find_end_nodex(*head);
 	while (*head != end->next)
