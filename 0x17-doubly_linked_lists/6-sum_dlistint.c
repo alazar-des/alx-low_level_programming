@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * find_last_node - returns the last node
+ * find_end_nodesum - returns the last node
  * @h: pointer to the head node
  *
  * Return: the last node
@@ -39,7 +39,7 @@ int sum_dlistint(dlistint_t *head)
 	if (head == NULL)
 		return (sum);
 	end = find_end_nodesum(head);
-	while(head != end)
+	while (head != end)
 	{
 		sum += head->n;
 		head = head->next;
