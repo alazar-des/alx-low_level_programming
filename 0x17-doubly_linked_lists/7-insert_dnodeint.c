@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * find_last_node - returns the last node
+ * find_end_nodex - returns the last node
  * @h: pointer to the head node
  *
  * Return: the last node
@@ -26,9 +26,10 @@ dlistint_t *find_end_nodex(dlistint_t *h)
 	return (end);
 }
 /**
- * get_dnodeint_at_index - return the node pointer at a given index
- * @head: pointer to head node
- * @index: node index to be returned
+ * insert_dnodeint_at_index - return the node pointer at a given index
+ * @h: pointer to head node
+ * @idx: node index to be returned
+ * @n: data of the new node
  *
  * Return: node pointer at a given index
  */
@@ -49,23 +50,25 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 	}
 	end = find_end_nodex(head);
-	while (*h != end)
+	while (*h != end->next)
 	{
 		if (i == idx)
 		{
 			temp = add_dnodeint(h, n);
-			prev->next = temp;
-			temp->prev = prev;
-			*h = head;
+			if (temp->prev != NULL)
+			{
+				temp->prev->next = temp, temp->prev = prev;
+				*h = head;
+			}
+			else
+				temp->prev = NULL, *h = temp;
 			return (temp);
 		}
-		prev = *h;
-		*h = (*h)->next;
-		i++;
+		prev = *h, *h = (*h)->next, i++;
 	}
 	if (i == idx)
 	{
-		temp = add_dnodeint(h, n);
+		temp = add_dnodeint_end(h, n);
 		prev->next = temp;
 		temp->prev = prev;
 		*h = head;
