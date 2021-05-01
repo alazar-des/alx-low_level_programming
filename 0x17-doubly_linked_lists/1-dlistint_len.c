@@ -27,7 +27,7 @@ const dlistint_t *find_last_node(const dlistint_t *h)
 	return (end);
 }
 /**
- * print_dlistint - print content of doubly linked list
+ * dlistint_len - return the length of doubly linked list
  * @h: pointer to the head node
  *
  * Return: length of the doubly linked list
