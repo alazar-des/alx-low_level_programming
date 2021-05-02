@@ -39,7 +39,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 	if (head == NULL || *head == NULL)
 		return (-1);
-	h =  = *head;
+	h =  *head;
 	end = find_end_nodex(*head);
 	while (*head != end->next)
 	{
