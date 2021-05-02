@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * find_last_node - returns the last node
+ * find_last_nodefr - returns the last node
  * @h: pointer to the head node
  *
  * Return: the last node
