@@ -35,10 +35,11 @@ dlistint_t *find_end_nodex(dlistint_t *h)
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	unsigned int i = 0;
-	dlistint_t *h = *head, *end;
+	dlistint_t *h, *end;
 
 	if (head == NULL || *head == NULL)
 		return (-1);
+	h =  = *head;
 	end = find_end_nodex(*head);
 	while (*head != end->next)
 	{
