@@ -9,7 +9,7 @@
  */
 dlistint_t *find_end_nodeidx(dlistint_t *h)
 {
-	dlistint_t *head = h, *end = NULL, *temp;
+	dlistint_t *head = h, *end, *temp;
 
 	while (h != NULL)
 	{
@@ -35,7 +35,7 @@ dlistint_t *find_end_nodeidx(dlistint_t *h)
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
 	unsigned int i = 0;
-	dlistint_t *h = head, *end, *temp;
+	dlistint_t *h = head, *end = NULL, *temp;
 
 	if (head == NULL)
 		return (NULL);
@@ -55,7 +55,8 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	{
 		temp = head;
 		head = h;
-		return (head);
+		return (temp);
 	}
+	head = h;
 	return (NULL);
 }
