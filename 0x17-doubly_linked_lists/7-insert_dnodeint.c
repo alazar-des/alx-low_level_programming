@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "lists.h"
-
+#include <stdio.h>
 /**
  * find_end_nodex - returns the last node
  * @h: pointer to the head node
@@ -36,10 +36,11 @@ dlistint_t *find_end_nodex(dlistint_t *h)
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int i = 0;
-	dlistint_t *head = *h, *end, *temp, *prev;
+	dlistint_t *head, *end, *temp, *prev;
 
 	if (h == NULL)
 		return (NULL);
+	head = *h;
 	if (*h == NULL)
 	{
 		if (idx == 0)
@@ -69,8 +70,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (i == idx)
 	{
 		temp = add_dnodeint_end(h, n);
-		prev->next = temp;
-		temp->prev = prev;
+		prev->next = temp, temp->prev = prev;
 		*h = head;
 		return (temp);
 	}
