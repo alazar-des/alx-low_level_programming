@@ -60,8 +60,12 @@ int find_largest_palindrom(void)
 	for (i = 1998; i > 0; i--)
 	{
 		n1 = i / 2, n2 = i - n1;
-		if (check_palindrom(n1 * n2))
-			return (n1 * n2);
+		while (n2 <= 999)
+		{
+			if (check_palindrom(n1 * n2))
+				return (n1 * n2);
+			n2++, n1--;
+		}
 	}
 	return (0);
 }
@@ -79,8 +83,8 @@ int main(void)
 
 	larg_pal = find_largest_palindrom();
 	printf("The largest palindrom num is %d\n", larg_pal);
-	fptr = fopen("102-result","w");
-	if(fptr == NULL)
+	fptr = fopen("102-result", "w");
+	if (fptr == NULL)
 	{
 		printf("Error!");
 		exit(1);
