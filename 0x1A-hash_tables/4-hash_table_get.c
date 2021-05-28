@@ -22,7 +22,8 @@ int _strcmpg(char *s1, const char *s2)
 }
 
 /**
- * has_table_get - get value from hash table
+ * hash_table_get - get value from hash table
+ * @ht: hash table pointer
  * @key: the key to look for
  *
  * Return: value if key exists, otherwise NULL
