@@ -2,9 +2,9 @@ PHONY: all
 
 CC = gcc
 
-SRC := *.c
+SRC := $(wildcard *.c)
 
-OBJ := *.o
+OBJ := $(src:.c=.o)
 
 NAME = holberton
 
