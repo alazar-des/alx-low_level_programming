@@ -1,0 +1,26 @@
+PHONY: all clean oclean fclean
+
+CC = gcc
+
+SRC := *.c
+
+OBJ := *.o
+
+NAME = holberton
+
+RM = rm
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+$(OBJ):
+	$(CC) $(SRC) -c $(OBJ)
+
+clean:
+	$(RM) -f *~ $(NAME)
+
+oclean:
+	$(RM) -f $(OBJ)
+
+fclean:
+	$(RM) -f *~ $(NAME) $(OBJ)
