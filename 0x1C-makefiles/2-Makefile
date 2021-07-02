@@ -1,0 +1,15 @@
+PHONY: all
+
+CC = gcc
+
+SRC := *.c
+
+OBJ := *.o
+
+NAME = holberton
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+$(OBJ):
+	$(CC) -c $(SRC)
