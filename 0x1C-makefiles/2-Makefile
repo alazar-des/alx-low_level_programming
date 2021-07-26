@@ -1,15 +1,12 @@
-PHONY: all
+CC := gcc
+SRC = holberton.c main.c
+OBJ = $(SRC:.c=.o)
+NAME := holberton
 
-CC = gcc
+all: NAME $(OBJ)
 
-SRC := $(wildcard *.c)
-
-OBJ := $(src:.c=.o)
-
-NAME = holberton
-
-all: $(OBJ)
+NAME: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-$(OBJ):
-	$(CC) -c $(SRC)
+$(OBJ): $(SRC) m.h
+	$(CC) -c $(OBJ) $(SRC)
