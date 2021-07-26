@@ -1,7 +1,7 @@
-CC := gcc
+CC = gcc
 SRC = holberton.c main.c
 OBJ = $(SRC:.c=.o)
-NAME := holberton
+NAME = holberton
 
 all: NAME $(OBJ)
 
