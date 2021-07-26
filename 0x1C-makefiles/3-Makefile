@@ -1,20 +1,17 @@
-PHONY: all clean oclean fclean
-
 CC = gcc
-
-SRC := $(wildcard *.c)
-
-OBJ := $(src:.c=.o)
-
+SRC = holberton.c main.c
+OBJ = $(SRC:.c=.o)
 NAME = holberton
-
 RM = rm
 
-all: $(OBJ)
+all: NAME $(OBJ)
+re: oclean all
+
+NAME: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-$(OBJ):
-	$(CC) $(SRC) -c $(OBJ)
+%.o: %.c m.h
+	$(CC) -c $< -o $@
 
 clean:
 	$(RM) -f *~ $(NAME)
