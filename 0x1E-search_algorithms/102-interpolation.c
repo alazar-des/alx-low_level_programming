@@ -21,9 +21,11 @@ int interpolation_recursive(int *array, size_t lo, size_t hi, int value)
 		if (array[pos] == value)
 			return (pos);
 		else if (array[pos] > value)
-			return (interpolation_recursive(array, lo, pos, value));
+			return (interpolation_recursive(
+					array, lo, pos - 1, value));
 		else
-			return (interpolation_recursive(array, pos, hi, value));
+			return (interpolation_recursive(
+					array, pos + 1, hi, value));
 	}
 	else
 		printf("Value checked array[%ld] is out of range\n", pos);
